@@ -13,3 +13,4 @@ lint.log
 *.swp
 *.swo
 running.pid
+vendor/

@@ -78,5 +78,6 @@ func (p *Pool) Get(namespace, queue, jobID string) (body []byte, ttlSecond uint3
 
 func (p *Pool) Delete(namespace, queue, jobID string) error {
 	metrics.poolDeleteJobs.WithLabelValues(p.redis.Name).Inc()
-	return p.redis.Conn.Del(join(PoolPrefix, namespace, queue, jobID)).Err()
+	_,err :=  p.redis.Conn.Del(join(PoolPrefix, namespace, queue, jobID))
+	return err
 }

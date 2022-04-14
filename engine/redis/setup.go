@@ -29,7 +29,7 @@ func Setup(conf *config.Config, l *logrus.Logger) error {
 		opt.ReadTimeout = 30 * time.Second
 		opt.WriteTimeout = 30 * time.Second
 		opt.MinIdleConns = 10
-		cli := helper.NewRedisClient(&poolConf, opt)
+		cli := helper.NewRedisPool(&poolConf, opt)
 		if cli.Ping().Err() != nil {
 			return fmt.Errorf("redis server %s was not alive", poolConf.Addr)
 		}

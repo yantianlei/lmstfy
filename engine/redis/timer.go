@@ -4,7 +4,7 @@ import (
 	"encoding/binary"
 	"time"
 
-	"github.com/go-redis/redis"
+	redis "github.com/go-redis/redis/v7"
 )
 
 const (
@@ -98,7 +98,7 @@ func (t *Timer) Add(namespace, queue, jobID string, delaySecond uint32, tries ui
 	binary.LittleEndian.PutUint16(buf[2+namespaceLen+2+queueLen+2:], uint16(jobIDLen))
 	copy(buf[2+namespaceLen+2+queueLen+2+2:], jobID)
 
-	return t.redis.Conn.ZAdd(t.Name(), redis.Z{Score: float64(timestamp), Member: buf}).Err()
+	return t.redis.Conn.ZAdd(t.Name(), &redis.Z{Score: float64(timestamp), Member: buf}).Err()
 }
 
 // Tick pump all due jobs to the target queue

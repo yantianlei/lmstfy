@@ -3,17 +3,17 @@ package redis
 import (
 	"encoding/json"
 	"fmt"
+	pool "github.com/bitleak/lmstfy/go-redis-pool"
 	"io"
 	"time"
 
 	"github.com/bitleak/lmstfy/engine"
 	"github.com/bitleak/lmstfy/uuid"
-	go_redis "github.com/go-redis/redis"
 )
 
 type RedisInstance struct {
 	Name string
-	Conn *go_redis.Client
+	Conn *pool.Pool
 }
 
 // Engine that connects all the dots including:
@@ -28,7 +28,7 @@ type Engine struct {
 	monitor *SizeMonitor
 }
 
-func NewEngine(redisName string, conn *go_redis.Client) (engine.Engine, error) {
+func NewEngine(redisName string, conn *pool.Pool) (engine.Engine, error) {
 	redis := &RedisInstance{
 		Name: redisName,
 		Conn: conn,

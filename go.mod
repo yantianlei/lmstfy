@@ -8,11 +8,13 @@ require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v0.0.0-20170702092826-d459835d2b07
 	github.com/go-redis/redis v6.15.7+incompatible
+	github.com/go-redis/redis/v7 v7.1.0
 	github.com/google/go-cmp v0.4.0
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.1
 	github.com/mattn/go-isatty v0.0.12 // indirect
+	github.com/meitu/go-redis-pool v1.0.0
 	github.com/mitchellh/go-homedir v0.0.0-20180523094522-3864e76763d9
 	github.com/mitchellh/mapstructure v1.2.2 // indirect
 	github.com/oklog/ulid v0.3.0

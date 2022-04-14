@@ -177,9 +177,10 @@ func (dl *DeadLetter) Delete(limit int64) (count int64, err error) {
 		if err != nil {
 			return 1, err
 		}
-		err = dl.redis.Conn.Del(PoolJobKey2(dl.namespace, dl.queue, jobID)).Err()
+		var num int64
+		num ,err = dl.redis.Conn.Del(PoolJobKey2(dl.namespace, dl.queue, jobID))
 		if err != nil {
-			return 1, fmt.Errorf("failed to delete job data: %s", err)
+			return num, fmt.Errorf("failed to delete job data: %s", err)
 		}
 		return 1, nil
 	} else {

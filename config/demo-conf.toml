@@ -24,7 +24,7 @@ Addr = "localhost:6379"
 
 [Pool]
 [Pool.default]
-Addr = "localhost:6379"
+Addr = "10.10.1.180:6378,10.10.1.180:6380"
 # Password = foobared
 # DB = 0
 #MigrateTo = "migrate" # When migration is enabled, all PUBLISH will go to `migrate` pool. and `default` will be drained
